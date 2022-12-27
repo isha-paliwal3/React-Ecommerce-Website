@@ -1,9 +1,10 @@
 import React from 'react'
+import HeroSection from '../Components/HeroSection'
 
 const Home = () => {
   return (
     <div>
-      Home
+      <HeroSection title="ApnaStore" photo="./assets/images/heroimg.png"/>
     </div>
   )
 }
