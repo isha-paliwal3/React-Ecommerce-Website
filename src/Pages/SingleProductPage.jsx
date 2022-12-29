@@ -7,6 +7,7 @@ import PageNavigation from "../Components/PageNavigation";
 import FormatPricing from "../Helpers/FormatPricing";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
+import MyImage from "../Components/MyImage";
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -118,7 +119,7 @@ return (
       <Container className="container">
         <div className="grid grid-two-column">
           <div className="product_images">
-          {/* <MyImage imgs={image}/>  */}
+          <MyImage imgs={image}/> 
           c
           </div>
 
