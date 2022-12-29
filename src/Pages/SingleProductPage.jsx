@@ -2,12 +2,13 @@ import { useProductContext } from "../Context/ProductContext"
 import styled from 'styled-components'
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import {Container} from "../Styles/Container"
+import { Container } from "../Styles/Container"
 import PageNavigation from "../Components/PageNavigation";
 import FormatPricing from "../Helpers/FormatPricing";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import MyImage from "../Components/MyImage";
+import Star from "../Components/Star";
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -33,8 +34,8 @@ const SingleProductPage = () => {
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
   }, []);
-      
-const Wrapper = styled.section`
+
+  const Wrapper = styled.section`
 .container {
   padding: 9rem 0;
 }
@@ -109,37 +110,36 @@ const Wrapper = styled.section`
 }
 `;
 
-if (isSingleLoading) {
-  return <div className="page_loading">Loading.....</div>;
-}
+  if (isSingleLoading) {
+    return <div className="page_loading">Loading.....</div>;
+  }
 
-return (
-  <Wrapper>
-    <PageNavigation title={name} />
+  return (
+    <Wrapper>
+      <PageNavigation title={name} />
       <Container className="container">
         <div className="grid grid-two-column">
           <div className="product_images">
-          <MyImage imgs={image}/> 
-          c
+            <MyImage imgs={image} />
+            c
           </div>
 
           <div className="product-data">
             <h2>{name}</h2>
-            <p>{stars}</p>
-            <p>{reviews}reviews</p>
+            <p><Star stars={stars} reviews = {reviews}/></p>
             <p className="product-data-price">
-              MRP: 
+              MRP:
               <del>
-                <FormatPricing price={ price + 250000 }/>
+                <FormatPricing price={price + 250000} />
               </del>
             </p>
             <p className="product-data-price product-data-real-price">
-              Deal of the Day: 
-                <FormatPricing price={ price }/>
+              Deal of the Day:
+              <FormatPricing price={price} />
             </p>
             <p>{description}</p>
             <div className="product-data-warranty">
-            <div className="product-warranty-data">
+              <div className="product-warranty-data">
                 <TbTruckDelivery className="warranty-icon" />
                 <p>Free Delivery</p>
               </div>
@@ -179,4 +179,3 @@ return (
 }
 
 export default SingleProductPage
- 
