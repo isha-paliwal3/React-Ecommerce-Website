@@ -9,6 +9,7 @@ import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import MyImage from "../Components/MyImage";
 import Star from "../Components/Star";
+import AddToCart from "../Components/AddToCart";
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -89,7 +90,6 @@ const SingleProductPage = () => {
   hr {
     max-width: 100%;
     width: 90%;
-    /* height: 0.2rem; */
     border: 0.1rem solid #000;
     color: red;
   }
@@ -171,6 +171,8 @@ const SingleProductPage = () => {
                 Brand :<span> {company} </span>
               </p>
             </div>
+          <hr />
+            {stock > 0 && <AddToCart product = {singleProduct}/>}
           </div>
         </div>
       </Container>
