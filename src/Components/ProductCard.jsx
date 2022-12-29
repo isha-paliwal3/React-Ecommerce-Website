@@ -5,7 +5,7 @@ import FormatPricing from '../Helpers/FormatPricing';
 const ProductCard = (curElem) => {
     const {id, name, image, price, category} = curElem;
   return (
-    <NavLink to={`'/singleproducts/${id}'`}>
+    <NavLink to={`/singleproducts/${id}`}>
         <div className="card">
             <figure>
                 <img src={image} alt={name} />
