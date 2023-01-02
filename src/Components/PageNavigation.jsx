@@ -2,7 +2,15 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components'
 
 const PageNavigation = (props) => {
-    const Wrapper = styled.section`
+    
+    return (
+        <Wrapper>
+            <NavLink to="/">Home</NavLink>/{props.title}
+        </Wrapper>
+    )
+}
+
+const Wrapper = styled.section`
     height: 10rem;
     background-color: ${({ theme }) => theme.colors.bg};
     display: flex;
@@ -15,13 +23,5 @@ const PageNavigation = (props) => {
       font-size: 3.2rem;
     }
     `;
-
-
-    return (
-        <Wrapper>
-            <NavLink to="/">Home</NavLink>/{props.title}
-        </Wrapper>
-    )
-}
 
 export default PageNavigation

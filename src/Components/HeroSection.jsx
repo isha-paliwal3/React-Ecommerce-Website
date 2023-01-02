@@ -2,7 +2,33 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import Button from '../Styles/Button'
 const HeroSection = (props) => {
-    const Wrapper = styled.section`
+    
+    return (
+        <Wrapper>
+            <div className="container">
+                <div className="grid grid-two-column">
+                    <div className="hero-section-data">
+                        <p className="intro-data">Welcome To </p>
+                        <h1>{props.title}</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem nisi reiciendis similique ducimus consequuntur sint, error vel ut, soluta deleniti quos repudiandae minus perferendis.</p>
+                        <NavLink>
+                            <Button>
+                                Shop Now
+                            </Button>
+                        </NavLink>
+                    </div>
+                    <div className="hero-section-image">
+                        <figure>
+                            <img src={props.photo} alt="HeroImage" className='image-style' />
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </Wrapper>
+    )
+}
+
+const Wrapper = styled.section`
     padding: 12rem 0;
     img {
       min-width: 10rem;
@@ -58,30 +84,5 @@ const HeroSection = (props) => {
       }
     }
   `;
-
-    return (
-        <Wrapper>
-            <div className="container">
-                <div className="grid grid-two-column">
-                    <div className="hero-section-data">
-                        <p className="intro-data">Welcome To </p>
-                        <h1>{props.title}</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem nisi reiciendis similique ducimus consequuntur sint, error vel ut, soluta deleniti quos repudiandae minus perferendis.</p>
-                        <NavLink>
-                            <Button>
-                                Shop Now
-                            </Button>
-                        </NavLink>
-                    </div>
-                    <div className="hero-section-image">
-                        <figure>
-                            <img src={props.photo} alt="HeroImage" className='image-style' />
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </Wrapper>
-    )
-}
 
 export default HeroSection

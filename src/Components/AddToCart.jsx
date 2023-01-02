@@ -21,7 +21,31 @@ const AddToCart = ({ product }) => {
        amount>1? setAmount(amount-1) : setAmount(1);
     }
 
-    const Wrapper = styled.section`
+    return (
+        <Wrapper>
+            <div className="colors">
+                <p>
+                    Colors:
+                    {
+                        colors.map((curColor, i) => {
+                            return <button key={i} style={{ background: curColor }} className={color === curColor ? "btnStyle active" : "btnStyle"} onClick={() => setColor(curColor)}>
+                                {color === curColor ? <FaCheck className='checkStyle' /> : null}
+                            </button>
+                        })
+                    }
+                </p>
+            </div>
+
+            <CardAmountToggle amount={amount} setDecrease={setDecrease} setIncrease={setIncrease}/>
+
+            <NavLink to='/cart'>
+                <Button className='btn'>Add to Cart</Button>
+            </NavLink>
+        </Wrapper>
+    )
+}
+
+const Wrapper = styled.section`
 .colors p {
   display: flex;
   justify-content: flex-start;
@@ -68,28 +92,5 @@ const AddToCart = ({ product }) => {
 }
 `;
 
-    return (
-        <Wrapper>
-            <div className="colors">
-                <p>
-                    Colors:
-                    {
-                        colors.map((curColor, i) => {
-                            return <button key={i} style={{ background: curColor }} className={color === curColor ? "btnStyle active" : "btnStyle"} onClick={() => setColor(curColor)}>
-                                {color === curColor ? <FaCheck className='checkStyle' /> : null}
-                            </button>
-                        })
-                    }
-                </p>
-            </div>
-
-            <CardAmountToggle amount={amount} setDecrease={setDecrease} setIncrease={setIncrease}/>
-
-            <NavLink to='/cart'>
-                <Button className='btn'>Add to Cart</Button>
-            </NavLink>
-        </Wrapper>
-    )
-}
 
 export default AddToCart
