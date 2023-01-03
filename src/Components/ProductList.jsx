@@ -15,10 +15,7 @@ const ProductList = () => {
 
   if(grid_view === false){
     return (
-      <>     
     <ListView products = {filter_products}/>
-    <h1>heel</h1>
-      </>
     )
   }
 
