@@ -2,10 +2,11 @@ import styled from 'styled-components'
 import { FaCheck } from "react-icons/fa"
 import FormatPricing from '../Helpers/FormatPricing'
 import { useFilterContext } from '../Context/FilterContext';
+import Button from '../Styles/Button'
 
 const FilterSection = () => {
 
-  const { filters: { text, category, color, minPrice, maxPrice, price }, all_products, updateFilterValue } = useFilterContext();
+  const { filters: { text, category, color, minPrice, maxPrice, price }, all_products, updateFilterValue, clearFilters } = useFilterContext();
 
   const getUniqueData = (data, property) => {
     let newVal = data.map((curElem) => {
@@ -97,6 +98,12 @@ const FilterSection = () => {
         <form action="#">
           <input type="range" name="price" value={price} min={minPrice} max={maxPrice} onChange={updateFilterValue}/>
         </form>
+      </div>
+
+      <div className="filter-clear">
+        <Button className="btn" type="button" name="clear" onClick={clearFilters}>
+          Clear Filters
+        </Button>
       </div>
     </Wrapper>
   )
