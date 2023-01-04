@@ -131,6 +131,9 @@ export const GlobalStyle = createGlobalStyle`
       max-width: 130rem;
       padding: 0 3.2rem;
     }
+     .grid-two-column , .grid-three-column, .grid-four-column{
+            grid-template-columns: 1fr 1fr;
+          }
     }
      @media (max-width: ${({ theme }) => theme.media.mobile}) {
          html {

@@ -35,7 +35,7 @@ function App() {
     },
     media: {
       mobile: "768px",
-      tab: "998px",
+      tab: "1200px",
     },
   };
 

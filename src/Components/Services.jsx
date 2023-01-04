@@ -97,6 +97,30 @@ h3 {
   color: #5138ee;
 }
 
+@media (max-width: ${({ theme }) => theme.media.tab}) {
+.service1,
+.service3{
+    display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      height: 15rem;
+
+      div{
+        display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      }
+}
+
+.grid-three-column{
+  grid-template-columns: 1fr;
+}
+}
+
 @media (max-width: ${({ theme }) => theme.media.mobile}) {
 .service1,
 .service3{
