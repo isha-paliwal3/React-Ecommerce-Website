@@ -58,7 +58,7 @@ const filterReducer = (state, action) => {
                 filter_products: newSortData,
             };
 
-            case "UPDATE_FILTERs_VALUE":
+            case "UPDATE_FILTERS_VALUE":
                 
                 const {name, value} = action.payload;
             return{
@@ -73,7 +73,7 @@ const filterReducer = (state, action) => {
                 let {all_products} = state;
                 let tempFilterProduct = [...all_products];
 
-                const {text} = state.filters;
+                const {text, category, company} = state.filters;
 
                 if(text) {
                     tempFilterProduct = tempFilterProduct.filter((curElem)=>{
@@ -81,6 +81,17 @@ const filterReducer = (state, action) => {
                     })
                 }
 
+                if(category !== "all") {
+                    tempFilterProduct = tempFilterProduct.filter(
+                        (curElem)=> curElem.category === category                 
+                    );
+                }
+
+                if(company !== "all") {
+                    tempFilterProduct = tempFilterProduct.filter(
+                        (curElem)=> curElem.company === company                 
+                    );
+                }
 
                 return{
                     ...state,
