@@ -48,7 +48,6 @@ const SingleProductPage = () => {
         <div className="grid grid-two-column">
           <div className="product_images">
             <MyImage imgs={image} />
-            c
           </div>
 
           <div className="product-data">
