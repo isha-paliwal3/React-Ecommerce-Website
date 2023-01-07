@@ -20,20 +20,18 @@ const SingleProductPage = () => {
   const { id } = useParams();
 
   const {
-    id: alias,
     name,
     company,
     price,
     description,
-    category,
     stock,
     stars,
     reviews,
     image,
   } = singleProduct;
-
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
+    // eslint-disable-next-line
   }, []);
 
 
