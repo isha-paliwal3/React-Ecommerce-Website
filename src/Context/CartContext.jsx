@@ -36,11 +36,19 @@ const CartProvider = ({ children }) => {
         dispatch({ type: "CLEAR_CART"})
     }
 
+    const setIncrease = (id) =>{
+        dispatch({type:"SET_INCREASE", payload:id})
+    }
+
+    const setDecrease = (id) =>{
+        dispatch({type:"SET_DECREASE", payload:id})
+    }
+
     useEffect(()=>{
         localStorage.setItem("apnaCart", JSON.stringify(state.cart))
     },[state.cart])
 
-    return (<CartContext.Provider value={{ ...state, addToCart, removeItem, clearCart }}>
+    return (<CartContext.Provider value={{ ...state, addToCart, removeItem, clearCart, setIncrease, setDecrease }}>
         {children}
     </CartContext.Provider>
     )

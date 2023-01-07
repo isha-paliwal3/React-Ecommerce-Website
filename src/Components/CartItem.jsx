@@ -6,7 +6,7 @@ import { useCartContext } from '../Context/CartContext';
 
 const CartItem = ({id, name, image, color, price, amount}) => {
 
-    const {removeItem} = useCartContext();
+    const {removeItem,setDecrease,setIncrease} = useCartContext();
 
     return (
        <div className="cart-heading grid grid-five-column">
@@ -28,8 +28,7 @@ const CartItem = ({id, name, image, color, price, amount}) => {
                 <p><FormatPricing price={price}/></p>
             </div>
             <div className="amount-toggle">
-                <CardAmountToggle amount={amount} />
-                {/* setDecrease={setDecrease} setIncrease={setIncrease}/> */}
+                <CardAmountToggle amount={amount} setDecrease= {()=>setDecrease(id)} setIncrease={()=>setIncrease(id)}/>
             </div>
             <div className="cart-hide">
               <p>
