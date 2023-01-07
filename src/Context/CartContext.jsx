@@ -17,7 +17,7 @@ const initialState = {
     cart: getLocalCartData(),
     total_item: "",
     total_price: "",
-    shiping_fee: 50000,
+    shiping_fee: 8000,
 }
 
 const CartProvider = ({ children }) => {
@@ -46,6 +46,7 @@ const CartProvider = ({ children }) => {
 
     useEffect(()=>{
         dispatch({type:"CART_TOTAL_ITEM"});
+        dispatch({type:"CART_TOTAL_PRICE"});
         localStorage.setItem("apnaCart", JSON.stringify(state.cart))
     },[state.cart])
 
