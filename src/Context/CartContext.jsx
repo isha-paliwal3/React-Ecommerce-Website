@@ -5,12 +5,17 @@ const CartContext = createContext();
 
 const getLocalCartData = () =>{
   let localCardData =  localStorage.getItem("apnaCart");
-  if(localCardData === []){
-    return [];
-  }
-  else{
-    return JSON.parse(localCardData);
-  }
+//   if(localCardData === []){
+//     return [];
+//   }
+//   else{
+//     return JSON.parse(localCardData);
+//   }
+const parsedData = JSON.parse(localCardData)
+
+if(!Array.isArray(parsedData)) return [];
+
+return parsedData;
 }
 
 const initialState = {
